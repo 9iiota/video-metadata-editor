@@ -35,9 +35,13 @@ def edit_mvhd(file_path, new_value):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Drag and drop a video file onto this script to edit it.")
+        print(
+            "Drag and drop a video file onto this script to edit its video duration metadata."
+        )
         sys.exit(1)
 
     video_path = sys.argv[1]  # file path from drag-and-drop
-    new_value = 5000
-    edit_mvhd(video_path, new_value)
+    video_duration_milliseconds = int(
+        input("Enter desired video duration metadata in milliseconds: ")
+    )
+    edit_mvhd(video_path, video_duration_milliseconds)
